@@ -1,25 +1,27 @@
-import Link from 'next/link'
-import React from 'react'
-import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa'
-import { githubUsername } from '@/constants/constants'
+import Link from 'next/link';
+import React from 'react';
+import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa';
+import { githubUsername } from '@/constants/constants';
 
-const username = githubUsername
+const username = githubUsername;
 
 async function fetchRepos() {
-  const username = githubUsername
+  const username = githubUsername;
 
-  const response = await fetch(`https://api.github.com/users/${username}/repos`)
+  const response = await fetch(
+    `https://api.github.com/users/${username}/repos`
+  );
 
   // const response = await fetch(`https://api.github.com/users/${username}/repos`)
   // await new Promise((resolve) => setTimeout(resolve, 1000))
 
-  const repos = await response.json()
-  return repos
+  const repos = await response.json();
+  return repos;
 } //비동기식 함수
 
 const ReposPage = async () => {
-  const username = githubUsername
-  const repos = await fetchRepos()
+  const username = githubUsername;
+  const repos = await fetchRepos();
   // console.log(repos)
 
   // key = repo.id, repos가 각각의 repo를 불러옴
@@ -30,7 +32,7 @@ const ReposPage = async () => {
       </h2>
       <ul>
         {repos.map((repo) => (
-          <li key={repo.id} className="bg-orange-300 m-4 p-4 rounded-lg">
+          <li key={repo.id} className="bg-blue-300 m-4 p-4 rounded-lg">
             <Link href={`/repos/${repo.name}`}>
               <h3 className="text-xl font-bold">{repo.name}</h3>
               <p>{repo.description}</p>
@@ -51,6 +53,6 @@ const ReposPage = async () => {
       </ul>
       <ul>리포지터리 정보 제공</ul>
     </div>
-  )
-}
-export default ReposPage
+  );
+};
+export default ReposPage;
