@@ -1,5 +1,3 @@
-import React from 'react'
-
 const LoadingPage = () => {
   return (
     <div className="flex min-h-screen justify-center items-center">
@@ -19,9 +17,8 @@ const LoadingPage = () => {
           fill="currentFill"
         />
       </svg>
-      <span class="sr-only">Loading...</span>
+      <span className="sr-only">Loading...</span>
     </div>
   )
 }
-
 export default LoadingPage
